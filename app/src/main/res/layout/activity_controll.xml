@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.wooti.tech.activity.controll.ControllActivity" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        tools:context=".activity.controll.ControllActivity">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp">
+
+                <ImageView
+                    android:id="@+id/connectInternet"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_red_network" />
+
+
+                <ImageView
+                    android:id="@+id/connectBluetooth"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/ic_red_bluetooth"
+                    android:onClick="@{activity::onClickConnectBluetooth}"/>
+
+
+                <LinearLayout
+                    android:id="@+id/manageFlagLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/managedFlagText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="12dp"
+                        android:letterSpacing="-0.01"
+                        android:lineSpacingExtra="2sp"
+                        android:text="관리기준"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/managedFlag"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
+                        android:background="@drawable/ic_red_up_arrow" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="right">
+
+                    <TextView
+                        android:id="@+id/sndCountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:letterSpacing="-0.01"
+                        android:lineSpacingExtra="2sp"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="14dp"
+                        android:text="0회 전송"/>
+
+                    <LinearLayout
+                        android:layout_width="210dp"
+                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:layout_height="wrap_content">
+
+                        <Spinner
+                            android:id="@+id/autoSpinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1초" />
+
+                        <Spinner
+                            android:id="@+id/autoSpinnerSec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="1회" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="#888888"
+                                    android:paddingLeft="16dp"
+                                    android:paddingRight="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="시공일자"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/currentDatetime"
+                                            android:layout_width="120dp"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:enabled="false"
+                                            android:paddingLeft="8dp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="파일종류"
+                                            android:textColor="#ffffff"
+                                            android:maxLength="12"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/fileType"
+                                            android:layout_width="120dp"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:paddingLeft="8dp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="공법"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/method"
+                                            android:layout_width="115dp"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:maxLength="12"
+                                            android:paddingLeft="8dp" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:letterSpacing="-0.01"
+                                            android:text="파일규격"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/pileStandard"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:imeOptions="actionNext"
+                                            android:maxLength="12"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:paddingLeft="8dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="위치"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/location"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:maxLength="12"
+                                            android:paddingLeft="8dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:digits="0123456789-."
+                                            android:letterSpacing="-0.01"
+                                            android:text="헤머무게"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/hammaT"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:drawableRight="@drawable/right_ton"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:paddingLeft="8dp"
+                                            android:maxLength="5"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:digits="0123456789-."
+                                            android:letterSpacing="-0.01"
+                                            android:text="낙하높이"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/fallMeter"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:drawableRight="@drawable/right_meter"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:paddingLeft="8dp"
+                                            android:maxLength="5"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:digits="0123456789-."
+                                            android:letterSpacing="-0.01"
+                                            android:text="관리기준"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/managedStandart"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:drawableRight="@drawable/right_mmeter"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="5"
+                                            android:paddingLeft="8dp"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="16dp"
+                                    android:paddingRight="8dp"
+                                    android:layout_marginRight="8dp"
+                                    android:background="#888888"
+                                    android:orientation="vertical">
+
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="해머효율"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/hammaEfficiency"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="5"
+                                            android:drawableRight="@drawable/right_per"
+                                            android:paddingRight="8dp"
+                                            android:paddingLeft="8dp" />
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="탄성계수"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/modulusElasticity"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:drawableRight="@drawable/right_t_and_cm"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="5"
+                                            android:paddingLeft="8dp"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="8dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:letterSpacing="-0.01"
+                                            android:text="파일단면적"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/crossSection"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:drawableRight="@drawable/ic_cmtow_black_big"
+                                            android:digits="0123456789-."
+                                            android:imeOptions="actionNext"
+                                            android:maxLength="8"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:paddingRight="8dp"
+                                            android:paddingLeft="8dp"
+                                            />
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:layout_marginBottom="8dp"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="@dimen/controll_activity_left_edit_text_not_list"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:letterSpacing="-0.01"
+                                            android:text="비고"
+                                            android:textColor="#ffffff"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/bigo"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:imeOptions="actionNext"
+                                            android:inputType="text"
+                                            android:maxLength="12"
+                                            android:paddingLeft="8dp" />
+
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="170dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:padding="10dp">
+
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="16dp"
+                                        android:onClick="@{activity::onClickAddCenperPiece}"
+                                        android:src="@drawable/ic_plus" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:letterSpacing="-0.01"
+                                        android:text="중    단"
+                                        android:textColor="#000000"
+                                        android:textSize="16sp" />
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="16dp"
+                                        android:onClick="@{activity::onClickDeleteCenperPiece}"
+                                        android:src="@drawable/ic_minus" />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <ListView
+                                android:id="@+id/pieceListview"
+                                android:layout_width="match_parent"
+                                android:layout_height="230dp"
+                                android:layout_marginRight="8dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="30dp"
+                                    android:layout_height="35dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:gravity="center_vertical"
+                                    android:letterSpacing="-0.01"
+                                    android:text="합계"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/totalConnectWidth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="1"
+                                    android:enabled="false"
+                                    android:paddingLeft="8dp"
+                                    android:letterSpacing="-0.01"
+                                    android:text="0"
+                                    android:textColor="#000000"
+                                    android:textSize="20sp" />
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginRight="8dp"
+                                    android:src="@drawable/ic_meter" />
+                                <Button
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center_vertical|center_horizontal"
+                                    android:textSize="17sp"
+                                    android:onClick="@{activity::resetPiece}"
+                                    android:textColor="#ffffff"
+                                    android:background="#0090e6"
+                                    android:text="초기화"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                android:layout_marginRight="8dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:digits="0123456789-."
+                                    android:letterSpacing="-0.01"
+                                    android:text="용접개소"
+                                    android:textColor="#000000"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:id="@+id/connectLength"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:digits="0123456789-."
+                                    android:enabled="false"
+                                    android:gravity="center_vertical"
+                                    android:inputType="numberDecimal|numberSigned"
+                                    android:paddingLeft="8dp"
+                                    android:text="0"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="20sp" />
+
+                                <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/ic_ea" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                android:layout_marginRight="8dp"
+
+                                android:gravity="center_vertical|center_horizontal"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="잔량"
+                                            android:textColor="#000000"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+                                            android:id="@+id/balance"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:digits="0123456789-."
+                                            android:enabled="false"
+                                            android:gravity="center_vertical"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:paddingLeft="8dp"
+                                            android:text="0"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="20sp" />
+
+                                        <ImageView
+                                            android:layout_width="15dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:src="@drawable/ic_meter" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="PILE NO"
+                                            android:textColor="#000000"
+                                            android:layout_marginRight="4dp"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/pileNo"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="9"
+                                            android:paddingLeft="8dp" />
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+
+                                        android:orientation="horizontal">
+
+                                        <TextView
+
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="천공깊이"
+                                            android:layout_marginRight="4dp"
+                                            android:textColor="#000000"
+                                            android:textSize="16sp" />
+
+                                        <EditText
+                                            android:id="@+id/drillingDepth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:drawableRight="@drawable/right_meter"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="5"
+                                            android:paddingLeft="8dp"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="60dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:letterSpacing="-0.01"
+                                            android:text="관입깊이"
+                                            android:layout_marginRight="4dp"
+                                            android:textColor="#000000"
+                                            android:textSize="16sp"
+
+                                            />
+
+                                        <EditText
+                                            android:id="@+id/intrusionDepth"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="35dp"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/common_edit_text"
+                                            android:digits="0123456789-."
+                                            android:drawableRight="@drawable/right_meter"
+                                            android:inputType="numberDecimal|numberSigned"
+                                            android:maxLength="5"
+                                            android:paddingLeft="8dp"
+                                            android:paddingRight="8dp" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+
+                                <!-- <Button
+                                    android:id="@+id/btnSend"
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_rowSpan="3"
+                                    android:layout_gravity="center_vertical|center_horizontal"
+                                    android:layout_margin="4dp"
+                                    android:background="@drawable/custom_btn"
+                                    android:onClick="@{activity::onClickPadSendClick}"
+                                    android:text="전    송"
+                                    android:textSize="25sp" />-->
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:gravity="left">
+
+                        <GridLayout
+                            android:layout_width="375dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="4dp"
+
+                            android:columnCount="4"
+                            android:orientation="horizontal"
+                            android:rowCount="4">
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadOneClick}"
+                                android:text="1" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadTwoClick}"
+                                android:text="2" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadThreeClick}"
+                                android:text="3" />
+
+
+                            <!--<LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:gravity="center_horizontal"
+                                android:onClick="@{activity::onClickPadDelClick}">-->
+
+
+                            <Button
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/ic_keyboard_backspace_black_24dp"
+                                android:onClick="@{activity::onClickPadDelClick}" />
+
+
+                            <!--    </LinearLayout>-->
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadFourClick}"
+                                android:text="4" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadFiveClick}"
+                                android:text="5" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadSixClick}"
+                                android:text="6" />
+
+                            <Button
+                                android:id="@+id/btnSend"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_rowSpan="3"
+                                android:layout_margin="4dp"
+                                android:layout_marginLeft="16dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadSendClick}"
+                                android:text="전    송"
+                                android:textSize="20sp" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadSevenClick}"
+                                android:text="7" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadEightClick}"
+                                android:text="8" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadNineClick}"
+                                android:text="9" />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadCommaClick}"
+                                android:text="." />
+
+                            <Button
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadZeroClick}"
+                                android:text="0" />
+
+                            <Button
+                                android:id="@+id/clearBtn"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_margin="4dp"
+                                android:background="@drawable/custom_btn"
+                                android:onClick="@{activity::onClickPadClrClick}"
+                                android:text="C" />
+
+
+                        </GridLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/sss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#212121"
+                        android:orientation="vertical">
+
+                        <!--  <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:onClick="@{activity::onClickAddPenetration}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/btn_add_white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:letterSpacing="-0.01"
+                                android:text="추가"
+                                android:textColor="#ffffff"
+                                android:textSize="20sp" />
+                        </LinearLayout>-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ListView
+                                android:id="@+id/penetrationListview"
+                                android:layout_width="match_parent"
+                                android:layout_height="440dp"
+                                android:paddingLeft="4dp"
+                                android:layout_weight="3.5" />
+
+                            <ListView
+                                android:id="@+id/tonListview"
+                                android:layout_width="match_parent"
+                                android:layout_height="440dp"
+                                android:paddingRight="4dp"
+                                android:layout_weight="5"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:gravity="bottom"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:letterSpacing="-0.01"
+                                    android:text="최종관입량"
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <EditText
+                                        android:id="@+id/totalPenetrationValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/common_edit_text"
+                                        android:drawableRight="@drawable/right_mmeter"
+                                        android:enabled="false"
+                                        android:inputType="numberDecimal|numberSigned"
+                                        android:paddingLeft="8dp"
+                                        android:paddingRight="8dp"
+                                        android:textColor="#000000"
+                                        android:text="0" />
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:letterSpacing="-0.01"
+                                    android:text="평균관입량"
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <EditText
+                                        android:id="@+id/avgPenetrationValue"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/common_edit_text"
+                                        android:drawableRight="@drawable/right_mmeter"
+                                        android:enabled="false"
+                                        android:inputType="numberDecimal|numberSigned"
+                                        android:paddingLeft="8dp"
+                                        android:paddingRight="8dp"
+                                        android:textColor="#000000"
+                                        android:text="0" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="@dimen/controll_activity_left_edit_text_margin_top"
+                                android:layout_marginRight="8dp"
+                                android:layout_marginBottom="@dimen/controll_activity_left_edit_text_margin_bottom"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:letterSpacing="-0.01"
+                                    android:text="극한지지력"
+                                    android:textColor="#ffffff"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <EditText
+                                        android:id="@+id/ultimateBearingCapacity"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/common_edit_text"
+                                        android:drawableRight="@drawable/right_kn"
+                                        android:enabled="false"
+                                        android:inputType="numberDecimal|numberSigned"
+                                        android:paddingLeft="8dp"
+                                        android:paddingRight="8dp"
+                                        android:textColor="#000000"
+                                        android:text="0" />
+
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal|center_vertical|bottom"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:background="#ecf3f7"
+                        android:gravity="center_horizontal|center_vertical|top"
+                        android:orientation="vertical">
+
+                            <Button
+                            android:id="@+id/btnMeasure"
+                            android:layout_width="175dp"
+                            android:layout_height="175dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:background="@drawable/custom_btn"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:onClick="@{activity::onClickBtnMeasure}"
+                            android:text="측     정"
+                            android:textSize="36sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

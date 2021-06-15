@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="autoCheckCount">
+        <item>1회</item>
+        <item>2회</item>
+        <item>3회</item>
+        <item>4회</item>
+        <item>5회</item>
+    </string-array>
+
+
+    <string-array name="autoCheckSec">
+        <item>1초</item>
+        <item>2초</item>
+        <item>3초</item>
+        <item>4초</item>
+        <item>5초</item>
+        <item>6초</item>
+        <item>7초</item>
+    </string-array>
+
+    <string-array name="pileStadards">
+        <item>D609.6,T1</item>
+        <item>D812.8,T9</item>
+        <item>D500.0,T12</item>
+        <item>D609.6,T9</item>
+        <item>D812.8,T12</item>
+        <item>D500.0,T9</item>
+        <item>D600.0,T12</item>
+        <item>D450,T70</item>
+        <item>D500,T80</item>
+        <item>D406.4,T9</item>
+        <item>D400,T65</item>
+        <item>D600,T90</item>
+        <item>D600.0,T9</item>
+        <item>D508.0,T12</item>
+    </string-array>
+
+    <string-array name="crossSections">
+        <item>225.29</item>
+        <item>227.269</item>
+        <item>183.972</item>
+        <item>169.816</item>
+        <item>301.894</item>
+        <item>138.827</item>
+        <item>221.671</item>
+        <item>835.66</item>
+        <item>1055.58</item>
+        <item>112.36</item>
+        <item>684.08</item>
+        <item>1441.99</item>
+        <item>167.101</item>
+        <item>186.98</item>
+    </string-array>
+
+</resources>
