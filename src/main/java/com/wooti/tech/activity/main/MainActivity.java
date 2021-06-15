@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity<MainActivity> implements MainIn.V
 
     private ProgressDialog dialog;
 
-    //중복 클릭 방지 시간 설정 ( 해당 시간 이후에 다시 클릭 가능 )
+    //중복 클릭 방지 시간 설정 ( 해당 시간 이후에 다시 클릭 가능 ) 안녕하세요
     private static final long MIN_CLICK_INTERVAL = 2000;
 
     private long mLastClickTime = 0;
