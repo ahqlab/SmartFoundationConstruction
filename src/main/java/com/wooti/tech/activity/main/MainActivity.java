@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity<MainActivity> implements MainIn.V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ////////
+        ////////1111
         dbHandler = new DBHandlerOfDevice(getApplicationContext());
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
