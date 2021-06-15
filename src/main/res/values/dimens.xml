@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="controll_activity_left_edit_text_margin_top">4dp</dimen>
+    <dimen name="controll_activity_left_edit_text_margin_bottom">4dp</dimen>
+    <dimen name="controll_activity_penetration_subject_wt">40dp</dimen>
+    <dimen name="controll_activity_left_edit_text_not_list">75dp</dimen>
+    <dimen name="controll_activity_left_edit_text">40dp</dimen>
+
+
+</resources>
