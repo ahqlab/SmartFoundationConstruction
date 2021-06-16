@@ -9,6 +9,7 @@ public class TTEst {
     public TTEst(String s){
         this.s = s;
         Log.e("HJLEE", "ssds");
+        Log.e("HJLEE", "두번째");
     }
 
 }
